@@ -1,0 +1,37 @@
+/*doscolumnas - DESKTOP */
+
+.doscolumnas {
+    @include grids (grid, repeat(2, 1fr));
+    align-items: center;
+    column-gap: 2rem;
+    align-content: space-between;
+    padding: 2rem 2rem 0rem 2rem;
+    div {
+        &.columnauno {
+            display: flex;
+            flex-direction: column;
+            padding-left: 2rem;
+        }
+    }
+    div {
+        &.columnados {
+            display: flex;
+            justify-content: center;
+            padding-right: 2rem;
+            margin-top: 2rem;
+        }
+    }
+}
+
+
+/*trespasos - desktop*/
+
+.trespasos {
+    @include grids (grid, repeat(2, 1fr));
+    justify-content: center;
+    div {
+        img {
+            min-width: 280px;
+        }
+    }
+}

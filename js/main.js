@@ -1,4 +1,4 @@
-alert("Bienvenido a Trabajos en Mendoza");
+/*alert("Bienvenido a Trabajos en Mendoza");
 alert("Creemos tu usuario");
 
 let Usuario = prompt("Ingresar Nombre de Usuario");
@@ -119,3 +119,50 @@ CalcularPrecioFinal(PrecioOriginal, ValorDescuento);
 MostrarPrecioFinal(PrecioConDescuento);
 
 alert("Comunicate a traves de nuestro Whatsapp que esta en el link de abajo asi te enviamos la info para abonar tu servicio");
+
+*/
+
+alert("Bienvenido a Trabajos en Mendoza");
+
+
+// Definición de precios
+const precios = {
+    'a': 850,
+    'b': 1000,
+    'c': 1500,
+    'd': 3600
+};
+
+// Función principal
+function solicitarServicio() {
+    let seleccionServicio;
+    do {
+        seleccionServicio = prompt("Seleccione un servicio:\nA- Diseño de Curriculum\nB- Diseño de Oferta Laboral\nC- Diseño de Publicidad para Emprendedores").toUpperCase();
+    } while (seleccionServicio !== 'A' && seleccionServicio !== 'B' && seleccionServicio !== 'C');
+
+    let seleccionOpcion;
+    switch (seleccionServicio) {
+        case 'A':
+            do {
+                seleccionOpcion = prompt("Seleccione una opción para Diseño de Curriculum:\nA) Diseño de CV Basic\nB) Diseño de CV Premium\nC) Diseño de CV Gold\nD) Diseño de CV Gold Plus").toLowerCase();
+            } while (!precios[seleccionOpcion]);
+            break;
+        case 'B':
+            do {
+                seleccionOpcion = prompt("Seleccione una opción para Diseño de Oferta Laboral:\nA) Diseño de Oferta Basic\nB) Diseño de Oferta Premium\nC) Diseño de Oferta Gold").toLowerCase();
+            } while (!precios[seleccionOpcion]);
+            break;
+        case 'C':
+            do {
+                seleccionOpcion = prompt("Seleccione una opción para Diseño de Publicidad para Emprendedores:\nA) Diseño de Publicidad Basic\nB) Diseño de Publicidad Premium\nC) Diseño de Publicidad Gold").toLowerCase();
+            } while (!precios[seleccionOpcion]);
+            break;
+    }
+
+    // Mostrar precio en pesos argentinos
+    const precioEnPesos = precios[seleccionOpcion];
+    alert(`El costo del servicio seleccionado es de ${precioEnPesos} pesos argentinos.`);
+}
+
+// Llamada a la función principal
+solicitarServicio();

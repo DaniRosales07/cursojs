@@ -1,0 +1,133 @@
+/*GLOBALES ESCRITORIO*/
+
+*,
+*:before,
+*:after {
+    font-size: 62.5%;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+
+/* FONDOS */
+
+body {
+    color: $color-primario;
+    background-color: $color-primario;
+}
+
+.fondo-celeste {
+    background-color: $color-secundario;
+}
+
+.fondo-blanco {
+    background-color: $color-primario;
+    padding: 3rem 1rem;
+    color: $color-secundario !important;
+}
+
+
+/*FUENTES - DESKTOP */
+
+h1 {
+    font-size: nth($list: $fuentes-desktop, $n: 1);
+}
+
+h2 {
+    font-size: nth($list: $fuentes-desktop, $n: 2);
+}
+
+h3 {
+    font-size: nth($list: $fuentes-desktop, $n: 3);
+    font-weight: 700;
+}
+
+h4 {
+    font-size: nth($list: $fuentes-desktop, $n: 4);
+}
+
+h5 {
+    font-size: nth($list: $fuentes-desktop, $n: 5) !important;
+    font-weight: bold;
+}
+
+p {
+    font-size: nth($list: $fuentes-desktop, $n: 6);
+}
+
+.centrar-textos {
+    text-align: center;
+}
+
+.centrar-contenido {
+    display: flex;
+    justify-content: center;
+}
+
+.texto-azul {
+    color: $color-secundario;
+}
+
+.texto-resaltado {
+    @include titulos('Montserrat'!important, center, 0rem);
+    font-weight: bold;
+    font-size: 4.8rem;
+    color: #72f1e7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.espacio-textos {
+    margin: 2rem 0rem;
+}
+
+.titulos {
+    @include titulos('Montserrat'!important, center, 2rem 0rem);
+    font-weight: bold;
+}
+
+.titulos2 {
+    @include titulos('Montserrat'!important, center, 2rem 0rem);
+    padding: 0rem 1rem;
+}
+
+.titulos-blancos {
+    @include titulos('Montserrat'!important, center, 1rem 0rem);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titulos-blog {
+    font-weight: bold;
+    text-align: left;
+    margin: 2rem 0rem;
+}
+
+
+/*IMAGENES*/
+
+img {
+    width: 70%;
+}
+
+.imagenchica img {
+    width: 30%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+
+/* LINKS */
+
+a {
+    text-decoration: none;
+    color: $color-primario;
+}
+
+a:visited {
+    color: $color-primario;
+}
+
+.espacio-costados {
+    padding: 2rem 2rem 0rem 2rem;
+}

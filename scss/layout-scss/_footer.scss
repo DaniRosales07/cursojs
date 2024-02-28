@@ -1,0 +1,28 @@
+/*FOOTER*/
+
+footer {
+    background-color: $color-secundario;
+    padding-bottom: 2rem;
+    .footer-group ul {
+        @include flexs (flex, row, center, center, center);
+        list-style: none;
+        li {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 2rem;
+        }
+    }
+}
+
+
+/*FOOTER - MOVIL*/
+
+.footer-group-mobile {
+    display: none;
+    justify-content: space-around;
+    text-align: center;
+    padding-top: 1.5rem;
+    img {
+        width: 30%;
+    }
+}
