@@ -1,4 +1,4 @@
-/*alert("Bienvenido a Trabajos en Mendoza");
+alert("Bienvenido a Trabajos en Mendoza");
 alert("Creemos tu usuario");
 
 let Usuario = prompt("Ingresar Nombre de Usuario");
@@ -20,149 +20,165 @@ if ((Mail === IngresarMail) && (Contraseña === IngresarContraseña)) {
 }
 
 
-alert("Ofrecemos los siguientes servicios: \n 1 - Diseños de CV \n 2 - Diseños de Ofertas Laborales \n 3 - Diseños de Publicidad de Servicios");
-let servicioElegido;
-do {
-    servicioElegido = prompt("¿Qué servicio quieres adquirir? Ingresa 1, 2 o 3");
-} while (![1, 2, 3].includes(parseInt(servicioElegido)));
+alert("Veamos en qué podemos ayudarte");
 
-
-let servicioDetalle;
-switch (parseInt(servicioElegido)) {
-    case 1:
-        do {
-            alert("Nuestros Packs de Diseños de CV son: \n A: Diseño de CV de Alto Impacto \n B: Diseño de CV + Constancia de CUIL \n C: Diseño CV + CUIL + Carta de Presentación ")
-            servicioDetalle = prompt("¿Cuál servicio prefieres: A, B o C?");
-        } while (!['A', 'B', 'C'].includes(servicioDetalle.toUpperCase()));
-        break;
-    case 2:
-        do {
-            alert("Nuestros Packs de Diseños de Oferta de Trabajo son: \n D: Compartimos tu Post en nuestras historias de Instagram \n E: Diseño de Oferta + Compartir y destacar en Instagram \n F: Diseño de Oferta + Destacadas + Publicar en nuestro Feed de Instagram ")
-            servicioDetalle = prompt("¿Cual servicio prefieres: D, E o F?");
-        } while (!['D', 'E', 'F'].includes(servicioDetalle.toUpperCase()));
-        break;
-    case 3:
-        do {
-            alert("Nuestros Packs de Diseños de Publicidad de Servicio son: \n G: Compartimos tu Post en nuestras historias de Instagram \n H: Diseño de Oferta + Compartir y destacar en Instagram \n I: Diseño de Oferta + Destacadas + Publicar en nuestro Feed de Instagram ")
-            servicioDetalle = prompt("¿Cuál servicio prefieres: G, H o I?");
-        } while (!['G', 'H', 'I'].includes(servicioDetalle.toUpperCase()));
-        break;
-}
-
-let servicioA = 750;
-let servicioB = 850;
-let servicioC = 1200;
-let servicioD = 50;
-let servicioE = 350;
-let servicioF = 550;
-let servicioG = 50;
-let servicioH = 350;
-let servicioI = 550;
-
-
-switch (servicioDetalle) {
-    case "A":
-        alert("El valor del servicio es de: " + servicioA + " pesos argentinos");
-        break;
-    case "B":
-        alert("El valor del servicio es de: " + servicioB + " pesos argentinos");
-        break;
-    case "C":
-        alert("El valor del servicio es de: " + servicioC + " pesos argentinos");
-        break;
-    case "D":
-        alert("El valor del servicio es de: " + servicioD + " pesos argentinos");
-        break;
-    case "E":
-        alert("El valor del servicio es de: " + servicioE + " pesos argentinos");
-        break;
-    case "F":
-        alert("El valor del servicio es de: " + servicioF + " pesos argentinos");
-        break;
-    case "G":
-        alert("El valor del servicio es de: " + servicioG + " pesos argentinos");
-        break;
-    case "H":
-        alert("El valor del servicio es de: " + servicioH + " pesos argentinos");
-        break;
-    case "I":
-        alert("El valor del servicio es de: " + servicioI + " pesos argentinos");
-        break;
-}
-
-alert("¿Tienes un descuento? Calculemos cuanto seria el precio final")
-
-let PrecioConDescuento;
-//500
-let PrecioOriginal = parseFloat(prompt("Ingresar precio de tu pack de diseño"));
-//10
-let Porcentaje = parseFloat(prompt("Ingresar numero de descuento sin procentaje. Ejemplo: 20"));
-//0.1
-let Descuento = (Porcentaje / 100);
-
-
-//CALCULA DESCUENTO
-function CalcularDescuento(precios, descuentos) {
-    ValorDescuento = (precios * descuentos)
-}
-
-function CalcularPrecioFinal(precioO, descuento) {
-    PrecioConDescuento = (precioO - descuento);
-}
-
-function MostrarPrecioFinal(Mensaje) {
-    alert("El valor de tu pack de diseño es de " + Mensaje);
-}
-
-CalcularDescuento(PrecioOriginal, Descuento);
-CalcularPrecioFinal(PrecioOriginal, ValorDescuento);
-MostrarPrecioFinal(PrecioConDescuento);
-
-alert("Comunicate a traves de nuestro Whatsapp que esta en el link de abajo asi te enviamos la info para abonar tu servicio");
-
-*/
-
-alert("Bienvenido a Trabajos en Mendoza");
-
-
-// Definición de precios
+// PRECIOS
 const precios = {
     'a': 850,
     'b': 1000,
     'c': 1500,
-    'd': 3600
+    'd': 3600,
+    'e': 150,
+    'f': 350,
+    'g': 550,
+    'h': 150,
+    'i': 350,
+    'j': 550,
 };
 
-// Función principal
-function solicitarServicio() {
-    let seleccionServicio;
-    do {
-        seleccionServicio = prompt("Seleccione un servicio:\nA- Diseño de Curriculum\nB- Diseño de Oferta Laboral\nC- Diseño de Publicidad para Emprendedores").toUpperCase();
-    } while (seleccionServicio !== 'A' && seleccionServicio !== 'B' && seleccionServicio !== 'C');
+// SERVICIOS
+function solicitarServicios() {
+    let totalPagar = 0;
+    let serviciosElegidos = [];
+    let continuar = true;
 
-    let seleccionOpcion;
-    switch (seleccionServicio) {
-        case 'A':
-            do {
-                seleccionOpcion = prompt("Seleccione una opción para Diseño de Curriculum:\nA) Diseño de CV Basic\nB) Diseño de CV Premium\nC) Diseño de CV Gold\nD) Diseño de CV Gold Plus").toLowerCase();
-            } while (!precios[seleccionOpcion]);
-            break;
-        case 'B':
-            do {
-                seleccionOpcion = prompt("Seleccione una opción para Diseño de Oferta Laboral:\nA) Diseño de Oferta Basic\nB) Diseño de Oferta Premium\nC) Diseño de Oferta Gold").toLowerCase();
-            } while (!precios[seleccionOpcion]);
-            break;
-        case 'C':
-            do {
-                seleccionOpcion = prompt("Seleccione una opción para Diseño de Publicidad para Emprendedores:\nA) Diseño de Publicidad Basic\nB) Diseño de Publicidad Premium\nC) Diseño de Publicidad Gold").toLowerCase();
-            } while (!precios[seleccionOpcion]);
-            break;
+    while (continuar) {
+        let seleccionServicio;
+        do {
+            seleccionServicio = prompt("Seleccione un servicio:\nA- Diseño de Curriculum\nB- Diseño de Oferta Laboral\nC- Diseño de Publicidad para Emprendedores\nD- Finalizar").toUpperCase();
+        } while (seleccionServicio !== 'A' && seleccionServicio !== 'B' && seleccionServicio !== 'C' && seleccionServicio !== 'D');
+
+        if (seleccionServicio === 'D') {
+            continuar = false;
+        } else {
+            let seleccionOpcion;
+            switch (seleccionServicio) {
+                case 'A':
+                    do {
+                        seleccionOpcion = prompt("Seleccione una opción para Diseño de Curriculum:\nA) Diseño de CV Basic\nB) Diseño de CV Premium\nC) Diseño de CV Gold\nD) Diseño de CV Gold Plus").toLowerCase();
+                    } while (!precios[seleccionOpcion]);
+                    break;
+                case 'B':
+                    do {
+                        seleccionOpcion = prompt("Seleccione una opción para Diseño de Oferta Laboral:\nE) Diseño de Oferta Basic\nF) Diseño de Oferta Premium\nG) Diseño de Oferta Gold").toLowerCase();
+                    } while (!precios[seleccionOpcion]);
+                    break;
+                case 'C':
+                    do {
+                        seleccionOpcion = prompt("Seleccione una opción para Diseño de Publicidad para Emprendedores:\nH) Diseño de Publicidad Basic\nI) Diseño de Publicidad Premium\nJ) Diseño de Publicidad Gold").toLowerCase();
+                    } while (!precios[seleccionOpcion]);
+                    break;
+            }
+
+            // DESCUENTOS
+            let descuentoAplicado = 0;
+
+            let tipoDescuento = prompt("Seleccione el tipo de descuento:\n1- Sin descuento\n2- 10%\n3- 30%\n4- 50%");
+            switch (tipoDescuento) {
+                case '2':
+                    descuentoAplicado = 0.1;
+                    break;
+                case '3':
+                    descuentoAplicado = 0.3;
+                    break;
+                case '4':
+                    descuentoAplicado = 0.5;
+                    break;
+                default:
+                    break;
+            }
+
+            // PRECIO FINAL
+            const precioOriginal = precios[seleccionOpcion];
+            const precioConDescuento = precioOriginal - (precioOriginal * descuentoAplicado);
+
+            // TOTAL A PAGAR
+            totalPagar += precioConDescuento;
+
+            // ACUMULADOR DE SERVICIOS Y PRECIOS
+            serviciosElegidos.push(`${seleccionServicio}: ${seleccionOpcion} (${descuentoAplicado > 0 ? `descuento del ${descuentoAplicado * 100}%` : 'sin descuento'})`);
+            
+            alert(`El costo del servicio seleccionado ${descuentoAplicado > 0 ? `con un descuento del ${descuentoAplicado * 100}% ` : ''}es de ${precioConDescuento} pesos argentinos.\nTotal acumulado hasta ahora: ${totalPagar}`);
+        }
     }
 
-    // Mostrar precio en pesos argentinos
-    const precioEnPesos = precios[seleccionOpcion];
-    alert(`El costo del servicio seleccionado es de ${precioEnPesos} pesos argentinos.`);
+    //SERVICIOS Y PRECIO FINAL
+    alert(`Servicios elegidos:\n${serviciosElegidos.join('\n')}\n\nEl precio total a pagar por los servicios seleccionados es de ${totalPagar} pesos argentinos.`);
 }
 
-// Llamada a la función principal
-solicitarServicio();
+solicitarServicios();
+
+/* INICIO SERVICIO
+alert("veamos en que podemos ayudarte")
+
+// PRECIOS
+const precios = {
+    'a': 850,
+    'b': 1000,
+    'c': 1500,
+    'd': 3600,
+    'e': 150,
+    'f': 350,
+    'g': 550,
+    'h': 150,
+    'i': 350,
+    'j': 550,
+};
+
+
+
+const ServiciosDetallados = {
+    '1': "Diseño de CV Basic",
+    '2': "Diseño de CV Premium",
+    '3': "Diseño de CV Gold",
+    '4': "Diseño de CV Gold Plus",
+    '5': "Diseño de Oferta Laboral Basic",
+    '5': "Diseño de Oferta Laboral Premium",
+    '6': "Diseño de Oferta Laboral Gold",
+    '7': "Diseño de Publicidad de Servicios Basic",
+    '8': "Diseño de Publicidad de Servicios Premium",
+    '9': "Diseño de Publicidad de Servicios Gold",
+}
+
+// SERVICIOS
+function solicitarServicios() {
+    let PagoTotal = 0
+    let serviciosElegis = [];
+    let continuar = true;
+
+
+}
+
+/* SERVICIOS
+function solicitarServicios() {
+    let totalPagar = 0;
+    let serviciosElegidos = [];
+    let continuar = true;
+
+    while (continuar) {
+        let seleccionServicio;
+        do {
+            seleccionServicio = prompt("Seleccione un servicio:\nA- Diseño de Curriculum\nB- Diseño de Oferta Laboral\nC- Diseño de Publicidad para Emprendedores\nD- Finalizar").toUpperCase();
+        } while (seleccionServicio !== 'A' && seleccionServicio !== 'B' && seleccionServicio !== 'C' && seleccionServicio !== 'D');
+
+        if (seleccionServicio === 'D') {
+            continuar = false;
+        } else {
+            let seleccionOpcion;
+            switch (seleccionServicio) {
+                case 'A':
+                    do {
+                        seleccionOpcion = prompt("Seleccione una opción para Diseño de Curriculum:\nA) Diseño de CV Basic\nB) Diseño de CV Premium\nC) Diseño de CV Gold\nD) Diseño de CV Gold Plus").toLowerCase();
+                    } while (!precios[seleccionOpcion]);
+                    break;
+                case 'B':
+                    do {
+                        seleccionOpcion = prompt("Seleccione una opción para Diseño de Oferta Laboral:\nE) Diseño de Oferta Basic\nF) Diseño de Oferta Premium\nG) Diseño de Oferta Gold").toLowerCase();
+                    } while (!precios[seleccionOpcion]);
+                    break;
+                case 'C':
+                    do {
+                        seleccionOpcion = prompt("Seleccione una opción para Diseño de Publicidad para Emprendedores:\nH) Diseño de Publicidad Basic\nI) Diseño de Publicidad Premium\nJ) Diseño de Publicidad Gold").toLowerCase();
+                    } while (!precios[seleccionOpcion]);
+                    break;
+            } */
